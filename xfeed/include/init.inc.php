@@ -32,6 +32,8 @@ function populate_category_name($cat = 0) {
      /**
      * Get the category name
      */
+    $cat = (int)$cat; // Try to convert to an integer, as cat id should only be int.
+  
     if ($cat >= FIRST_USER_CAT) {
         $result = cpg_db_query("SELECT name FROM {$CONFIG['TABLE_CATEGORIES']} WHERE cid = " . USER_GAL_CAT);
         $row = cpg_db_fetch_assoc($result, true);
